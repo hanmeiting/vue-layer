@@ -138,7 +138,7 @@ export default {
       return y;
     },
     resetZIndex() {
-      let max = 500;
+      let max = 999;
       let keys = Object.keys(this.cls);
       let doms = document.querySelectorAll("." + keys[0]); //vl-notify-iframe
       let domZindex = 0;
@@ -151,7 +151,7 @@ export default {
           max = value;
         }
       }
-      if (domZindex == max && max != 500) {
+      if (domZindex == max && max != 999) {
         return;
       }
       //预留遮罩层z-index
