@@ -1,7 +1,7 @@
 <template>
   <div
     class="vl-notify vl-notify-main vl-notify-alert"
-    :class="[cls, options.className]"
+    :class="[cls,isMax? 'layerMax':'', options.className]"
     @mousemove="move"
     @mouseup="moveEnd"
     @focus="resetZIndex"
@@ -57,7 +57,8 @@ export default {
         moveLeft: 0,
         moveTop: 0,
         tt: {}
-      }
+      },
+      isMax: false
     };
   },
   props: {
@@ -190,6 +191,7 @@ export default {
         top: "auto"
       };
       this.maxMiniState = 1;
+      this.isMax = false
     },
     max() {
       //最大化窗口
@@ -205,6 +207,7 @@ export default {
         minHeight: "42px"
       };
       this.maxMiniState = 2;
+      this.isMax = true;
     },
     maxmini() {//还原
       document.getElementById(this.options.id).removeAttribute("style");
@@ -214,6 +217,7 @@ export default {
         margin: "t"
       };
       this.maxMiniState = 0;
+      this.isMax = false;
     },
     moveStart(event) {
       helper.moveStart(event, this.options);

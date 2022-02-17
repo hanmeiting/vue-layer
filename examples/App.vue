@@ -247,13 +247,12 @@ export default {
         area: ["901px", "501px"],
         title: "这是一个标题这是一个标题这是一个标题这是一个标题",
         maxmin: true,
-        shade: false,
-        shadeClose: false,
+        shade: true,
+        shadeClose: true,
         scrollbar: false,
-        resize: true,
+        resize: false,
         btn: ['a', 'b'],
         cancel: () => {
-          alert(2110);
         }
       });
       console.log(id);
